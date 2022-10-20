@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class Hello01Config(AppConfig):
+class StaticsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "hello01"
+    name = "statics"

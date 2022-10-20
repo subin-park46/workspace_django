@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/workspace_django.iml" filepath="$PROJECT_DIR$/.idea/workspace_django.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/workspae_django.iml" filepath="$PROJECT_DIR$/.idea/workspae_django.iml" />
     </modules>
   </component>
 </project>

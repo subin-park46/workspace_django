@@ -6,8 +6,9 @@
 </head>
 <body>
 
-    <h1>{{ lst.0 }}</h1>
-    <p>{{ lst.1 }}</p>
+    {% if user.id %}
+        <h1>Hello, {{ user.id }}</h1>
+    {% endif %}
 
 </body>
 </html>
