@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class MyBoard(models.Model):
     myname = models.CharField(max_length=100)
     mytitle = models.CharField(max_length=300)
@@ -7,7 +8,11 @@ class MyBoard(models.Model):
     mydate = models.DateTimeField()
 
     def __str__(self):
-        return str({"myname": self.myname, "mytitle": self.mytitle, "mycontent": self.mycontent, "mydate": self.mydate})
+        return str({"myname": self.myname,
+                    "mytitle": self.mytitle,
+                    "mycontent": self.mycontent,
+                    "mydate": self.mydate})
+
 
 class MyMember(models.Model):
     myname = models.CharField(max_length=100)
@@ -15,4 +20,6 @@ class MyMember(models.Model):
     myemail = models.CharField(max_length=100)
 
     def __str__(self):
-        return str({"myname": self.myname, "mypassword": self.mypassword, "myemail": self.myemail})
+        return str({"myname": self.myname,
+                    "mypassword": self.mypassword,
+                    "myemail": self.myemail})

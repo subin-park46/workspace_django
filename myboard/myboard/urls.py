@@ -1,4 +1,4 @@
-"""dbtest2 URL Configuration
+"""myboard URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", views.index, name="index"),
     path("insert/", views.insert, name="insert"),
     path("detail/<int:id>", views.detail, name="detail"),

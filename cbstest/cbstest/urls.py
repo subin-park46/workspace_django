@@ -1,4 +1,4 @@
-"""dbtest2 URL Configuration
+"""cbstest URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -19,12 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name="index"),
-    path("insert/", views.insert, name="insert"),
-    path("detail/<int:id>", views.detail, name="detail"),
-    path("update/<int:id>", views.update, name="update"),
-    path("delete/<int:id>", views.delete, name="delete"),
-    path("register/", views.register, name="register"),
-    path("login/", views.login, name="login"),
-    path("logout/", views.logout, name="logout"),
+    path("", views.MyBoardListView.as_view(), name="myboard-list"),
+    path("detail/<int:id>", views.MyBoardDetailView.as_view(), name="detail")
 ]

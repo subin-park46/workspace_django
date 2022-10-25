@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>MyBoard ({{ request.session.myname | default:'guest' }} 님)</h1>
+
+    <a href="{% url 'register' %}">register</a>
+    {% if not request.session.myname %}
+        <a href="{% url 'login' %}">login</a>
+    {% else%}
+        <a href="{% url 'logout' %}">logout</a>
+    {% endif %}
+    <table border="1">
+        <colgroup>
+            <col width="50">
+            <col width="100">
+            <col width="500">
+            <col width="100">
+        </colgroup>
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>제목</th>
+            <th>작성일</th>
+        </tr>
+        {% if not list %}
+            <tr>
+                <th colspan="4">----------작성된 글이 없습니다----------</th>
+            </tr>
+        {% else %}
+            {% for dto in list %}
+                <tr>
+                    <td>{{ dto.id }}</td>
+                    <td>{{ dto.myname }}</td>
+                    <td><a href="{% url 'detail' dto.id %}">{{ dto.mytitle }}</a></td>
+                    <td>{{ dto.mydate | date:"y-m-d g:i" }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        <tr>
+            <td colspan="4" align="center">
+                <a href="?page=1">처음</a>
+                {% if list.has_previous %}
+                    <a href="?page={{ list.previous_page_number }}">이전</a>
+                {% else %}
+                    <a>이전</a>
+                {% endif %}
+                {% for page in list.paginator.page_range %}
+                    {% if page == list.number %}
+                        <b>{{ page }}</b>
+                    {% else %}
+                        <a href="?page={{ page }}">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if list.has_next %}
+                    <a href="?page={{ list.next_page_number }}">다음</a>
+                {% else %}
+                    <a>다음</a>
+                {% endif %}
+                <a href="?page={{ list.paginator.num_pages }}">끝</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="right">
+                <input type="button" value="글작성" onclick="location.href='{% url 'insert' %}'">
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

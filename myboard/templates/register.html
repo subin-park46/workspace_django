@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Register</h1>
+
+    <form action="{% url 'register' %}" method="post">{% csrf_token %}
+          <table border="1">
+              <tr>
+                  <th>MYNAME</th>
+                  <td><input type="text" name="myname"></td>
+              </tr>
+              <tr>
+                  <th>MYPASSWORD</th>
+                  <td><input type="text" name="mypassword"></td>
+              </tr>
+              <tr>
+                  <th>MYEMAIL</th>
+                  <td><input type="text" name="myemail"></td>
+              </tr>
+              <tr>
+                  <td colspan="2" align="right">
+                      <input type="button" value="취소" onclick="location.href='{% url 'index' %}'">
+                      <input type="submit" value="회원가입">
+                  </td>
+              </tr>
+          </table>
+    </form>
+
+</body>
+</html>
