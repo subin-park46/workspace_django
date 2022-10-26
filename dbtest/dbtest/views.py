@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 def index(request):
-    return render(request, "index.html", {"list": MyBoard.objects.all()})
+    return render(request, "index.html", {"list": MyBoard.objects.all()}) # render 는 템플릿을 불러오고
 
 
 def detail(request, id):
@@ -26,7 +26,7 @@ def insert_res(request):
     print(result)
 
     if result:
-        return redirect("index")
+        return redirect("index")  # redirect 는 URL로 이동
     else:
         return redirect("insertform")
 
